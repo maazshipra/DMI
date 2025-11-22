@@ -20,9 +20,14 @@
     <link rel="stylesheet" href="{% static 'base/plugins/venobox/venobox.css' %}">
     <link rel="stylesheet" href="{% static 'base/plugins/animate/animate.css' %}">
     <link rel="stylesheet" href="{% static 'base/plugins/aos/aos.css' %}">
-    <link rel="stylesheet" href="{% static 'base/plugins/bootstrap-touchspin-master/jquery.bootstrap-touchspin.min.css' %}">
+    <link rel="stylesheet"
+        href="{% static 'base/plugins/bootstrap-touchspin-master/jquery.bootstrap-touchspin.min.css' %}">
     <link rel="stylesheet" href="{% static 'base/plugins/nice-select/nice-select.css' %}">
     <link rel="stylesheet" href="{% static 'base/plugins/bootstrap-slider/bootstrap-slider.min.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
     <!-- Main Stylesheet -->
     <link href="{% static 'base/style.css' %}" rel="stylesheet">
@@ -38,10 +43,12 @@
 
 <!-- navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white w-100" id="navbar">
-    <a class="navbar-brand order-2 order-lg-1" href="{% url 'home' %}"><img class="img-fluid" style="width: 225px; padding: 10px;" src="{% static 'base/images/logo/logo4.png' %}" alt="logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
+    <a class="navbar-brand order-2 order-lg-1" href="{% url 'home' %}"><img class="img-fluid"
+            style="width: 225px; padding: 10px;" src="{% static 'base/images/logo/logo4.png' %}" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse order-1 order-lg-2" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
@@ -55,7 +62,7 @@
                 <a class="nav-link " href="/home/shop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       shop
     </a> -->
-                <!-- <div class="dropdown-menu">
+            <!-- <div class="dropdown-menu">
                     <a class="dropdown-item" href="shop.html">Shop</a>
                     <a class="dropdown-item" href="shop-list.html">Shop List</a>
                     <a class="dropdown-item" href="product-single.html">Product Single</a>
@@ -67,22 +74,23 @@
                     <a class="dropdown-item" href="track.html">Track Order</a>
                 </div> -->
             <!-- </li> -->
-            
+
             <li class="nav-item dropdown view">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Products
-    </a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Products
+                </a>
                 <div class="dropdown-menu">
-                    {% for category in categories  %} 
+                    {% for category in categories %}
                     <a class="dropdown-item" href="{% url 'shop' %}?category={{category.title }}">{{category.title}}</a>
-                              
-                                {% endfor %}
+
+                    {% endfor %}
                     <!-- <a class="dropdown-item" href="">Watch Display</a>
                     <a class="dropdown-item" href="">Optic Display</a>
                     <a class="dropdown-item" href="">Jewellery Display</a>
                     <a class="dropdown-item" href="">Fragrance Display</a>
                     <a class="dropdown-item" href="">Makeup Display</a> -->
-                 
+
                 </div>
             </li>
             <!-- <li class="nav-item dropdown mega-dropdown">
@@ -150,7 +158,8 @@
                 <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
                 <div class="search-wrapper">
                     <form action="{% url 'search' %}" method="get">
-                        <input class="search-box" name="search" id="search" type="search" placeholder="Enter Keywords...">
+                        <input class="search-box" name="search" id="search" type="search"
+                            placeholder="Enter Keywords...">
                         <button class="search-icon" type="submit"><i class="ti-search"></i></button>
                     </form>
                 </div>
@@ -207,8 +216,8 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6 mb-5 mb-md-0 text-center text-sm-left">
                     <h4 class="mb-4">Contact</h4>
-                    <p>Unit No. 15, Joshi Qureshi Compound, 
-                        S.V Road, Jogeshwari (West), 
+                    <p>Unit No. 15, Joshi Qureshi Compound,
+                        S.V Road, Jogeshwari (West),
                         Mumbai - 400102</p>
                     <p>(+91) 9999999999</p>
                     <p>DisplayMaxIndia@gmail.com</p>
@@ -222,12 +231,13 @@
                 <div class="col-md-3 col-sm-6 mb-5 mb-md-0 text-center text-sm-left">
                     <h4 class="mb-4">Category</h4>
                     <ul class="pl-0 list-unstyled">
-                        {% for category in categories  %} 
-                    
-                    <li class="mb-2"><a class="text-color" href="{% url 'shop' %}?category={{category.title }}">{{category.title}}</a></li>
-                              
-                                {% endfor %}
-                        
+                        {% for category in categories %}
+
+                        <li class="mb-2"><a class="text-color"
+                                href="{% url 'shop' %}?category={{category.title }}">{{category.title}}</a></li>
+
+                        {% endfor %}
+
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6 mb-5 mb-md-0 text-center text-sm-left">
@@ -247,27 +257,31 @@
                         <li class="mb-2"><a class="text-color" href="">Terms & Conditions</a></li>
                         <li class="mb-2"><a class="text-color" href="">Cookie Policy</a></li>
                         <li class="mb-2"><a class="text-color" href="">Terms of Sale</a></li>
-                        
+
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="py-4" style="background:#f58634;" >  
+    <div class="py-4" style="background:#f58634;">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 text-center text-md-left mb-4 mb-md-0 align-self-center">
-                   <p class="text-white mb-0"> &copy; 2023 all right reserved</p>
+                    <p class="text-white mb-0"> &copy; 2023 all right reserved</p>
                 </div>
                 <div class="col-md-2 text-center text-md-left mb-4 mb-md-0">
                     <img src="{% static 'base/images/logo/logo2.png' %}" width="200px" alt="logo">
                 </div>
                 <div class="col-md-5 text-center text-md-right mb-4 mb-md-0">
                     <ul class="list-inline">
-                        <li class="list-inline-item"><img class="img-fluid rounded atm-card-img" src="{% static 'base/images/payment-card/card-1.jpg' %}" alt="card"></li>
-                        <li class="list-inline-item"><img class="img-fluid rounded atm-card-img" src="{% static 'base/images/payment-card/card-2.jpg' %}" alt="card"></li>
-                        <li class="list-inline-item"><img class="img-fluid rounded atm-card-img" src="{% static 'base/images/payment-card/card-3.jpg' %}" alt="card"></li>
-                        <li class="list-inline-item"><img class="img-fluid rounded atm-card-img" src="{% static 'base/images/payment-card/card-4.jpg' %}" alt="card"></li>
+                        <li class="list-inline-item"><img class="img-fluid rounded atm-card-img"
+                                src="{% static 'base/images/payment-card/card-1.jpg' %}" alt="card"></li>
+                        <li class="list-inline-item"><img class="img-fluid rounded atm-card-img"
+                                src="{% static 'base/images/payment-card/card-2.jpg' %}" alt="card"></li>
+                        <li class="list-inline-item"><img class="img-fluid rounded atm-card-img"
+                                src="{% static 'base/images/payment-card/card-3.jpg' %}" alt="card"></li>
+                        <li class="list-inline-item"><img class="img-fluid rounded atm-card-img"
+                                src="{% static 'base/images/payment-card/card-4.jpg' %}" alt="card"></li>
                     </ul>
                 </div>
             </div>
@@ -283,27 +297,28 @@
 
 
 
- <!-- jQuery -->
-    
- <script src="{% static 'base/plugins/jQuery/jquery.min.js' %}"></script>
- <!-- Bootstrap JS -->
- <script src="{% static 'base/plugins/bootstrap/bootstrap.min.js' %}"></script>
- <script src="{% static 'base/plugins/slick/slick.min.js' %}"></script>
- <script src="{% static 'baseplugins/venobox/venobox.min.js' %}"></script>
- <script src="{% static 'base/plugins/aos/aos.js' %}"></script>
- <script src="{% static 'base/plugins/syotimer/jquery.syotimer.js' %}"></script>
- <script src="{% static 'base/plugins/instafeed/instafeed.min.js' %}"></script>
- <script src="{% static 'base/plugins/zoom-master/jquery.zoom.min.js' %}"></script>
- <script src="{% static 'base/plugins/bootstrap-touchspin-master/jquery.bootstrap-touchspin.min.js' %}"></script>
- <script src="{% static 'base/plugins/nice-select/jquery.nice-select.min.js' %}"></script>
- <script src="{% static 'base/plugins/bootstrap-slider/bootstrap-slider.min.js' %}"></script>
- <!-- google map -->
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
- <script src="{% static 'base/plugins/google-map/gmap.js' %}"></script>
- <!-- Main Script -->
- <script src="{% static 'base/script.js' %}"></script>
+<!-- jQuery -->
 
- {% block javascript %}
+<script src="{% static 'base/plugins/jQuery/jquery.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'base/plugins/bootstrap/bootstrap.min.js' %}"></script>
+<script src="{% static 'base/plugins/slick/slick.min.js' %}"></script>
+<script src="{% static 'baseplugins/venobox/venobox.min.js' %}"></script>
+<script src="{% static 'base/plugins/aos/aos.js' %}"></script>
+<script src="{% static 'base/plugins/syotimer/jquery.syotimer.js' %}"></script>
+<script src="{% static 'base/plugins/instafeed/instafeed.min.js' %}"></script>
+<script src="{% static 'base/plugins/zoom-master/jquery.zoom.min.js' %}"></script>
+<script src="{% static 'base/plugins/bootstrap-touchspin-master/jquery.bootstrap-touchspin.min.js' %}"></script>
+<script src="{% static 'base/plugins/nice-select/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'base/plugins/bootstrap-slider/bootstrap-slider.min.js' %}"></script>
+<!-- google map -->
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="{% static 'base/plugins/google-map/gmap.js' %}"></script>
+<!-- Main Script -->
+<script src="{% static 'base/script.js' %}"></script>
+
+{% block javascript %}
 {% endblock %}
 </body>
 
