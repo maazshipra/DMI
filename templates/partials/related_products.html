@@ -1,0 +1,64 @@
+{% load static %}
+
+<div class="collection-slider-container">
+    <div class="swiper collection-slider">
+        <div class="swiper-wrapper">
+
+            {% for collection in related_prod %}
+            <div class="swiper-slide">
+                <div class="product-card">
+
+                    <div class="product-badge">Premium</div>
+
+                    <div class="product-tilt-effect">
+                        <div class="product-image">
+                            <a href="{% url 'prod_detail' collection.id %}">
+                                <img src="{{ collection.image.url }}" alt="{{ collection.title }}" class="img-fluid"
+                                    style="height: 200px; width:100%; object-fit: contain;">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-category">{{ collection.category }}</div>
+
+                        <h2 class="product-title">
+                            <a href="{% url 'prod_detail' collection.id %}">
+                                {{ collection.title }}
+                            </a>
+                        </h2>
+
+                        <div class="product-features">
+                            <span class="feature">Waterproof</span>
+                        </div>
+
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-now">₹999</span>
+                            </div>
+
+                            <a href="{% url 'prod_detail' collection.id %}">
+                                <button class="product-button">
+                                    <span class="button-text">Explore</span>
+                                </button>
+                            </a>
+                        </div>
+
+                        <div class="product-meta">
+                            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+                            <div class="product-stock">In Stock</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</div>

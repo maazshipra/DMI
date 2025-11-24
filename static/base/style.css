@@ -2994,7 +2994,7 @@ label {
   background-position: center;
   width: 40px;
   height: 40px;
-background-color: white;
+  background-color: white;
   border-radius: 30px;
   margin-right: -60px;
 }
@@ -3041,3 +3041,206 @@ background-color: white;
     display: flex;
     justify-content: center;
 }
+
+/* Tabs */
+.prod-tabs {
+    display: flex;
+    width: 100%;
+    margin: 20px 0px;
+    padding: 0;
+    border-bottom: 1px solid #eee;
+}
+
+.prod-tabs li {
+    list-style: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #999;
+    cursor: pointer;
+    padding-bottom: 10px;
+    position: relative;
+    margin-right: 25px;
+}
+
+.prod-tabs li.active {
+    color: #000;
+}
+
+.prod-tabs li.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #000;
+}
+
+/* TAB CONTENT */
+.tab-content-box {
+    margin-top: 25px;
+}
+
+.tab-box {
+    display: none;
+}
+
+.tab-box.active {
+    display: block;
+}
+
+/* DIMENSIONS ROW STYLE */
+.dimension-row {
+    display: flex;
+    /* justify-content: space-between; */
+    padding: 12px 0;
+    font-size: 15px;
+    color: #444;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.dimension-row span:first-child {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.dimension-attribute{
+    width: 40%;
+}
+
+/* Wrapper */
+.product-actions {
+    margin-top: 20px;
+}
+.product-detail-container{
+    margin: 100px;
+}
+
+/* Make inputs clean */
+.size-select,
+.qty-input {
+    height: 48px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+/* Quotation button full-width on mobile */
+.quotation-btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 14px 0;
+    border-radius: 10px;
+}
+
+/* Row spacing fix */
+.action-row {
+    margin-bottom: 15px;
+}
+
+.product-detail-row{
+    display: flex;
+    gap: 30px;
+}
+/* MOBILE VIEW */
+@media (max-width: 576px) {
+
+    .action-row {
+        display: block;
+    }
+
+    .size-select,
+    .qty-input {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .quotation-btn {
+        font-size: 16px;
+        width: 100%;
+        padding: 14px 0;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .product-actions label {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    /* Add spacing between inputs on mobile */
+    .action-row .col-12 {
+        margin-bottom: 12px;
+    }
+    
+    .thumbSwiper{
+        display: none !important;
+    }
+    .swiper-slide-cust{
+        height: 345px !important;
+        width: 345px !important;
+    }
+    .prod-tabs {
+        justify-content: space-between;
+    }
+    .prod-tabs li {
+        margin-right: 0px;
+    }
+    .product-detail-container{
+        margin: 0px;
+    }
+    .product-detail-row{
+        flex-wrap: wrap;
+        gap: 0px;
+    }
+}
+
+
+
+.productSwiper {
+    padding: 0px !important;
+}
+.productSwiper img {
+    border-radius: 10px;
+}
+
+.thumbSwiper .swiper-slide {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.thumbSwiper .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 2px solid #f58634;
+    border-radius: 8px;
+}
+
+.swiper-btn-custom {
+    background-color: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.swiper-btn-custom:hover {
+    background-color: white;
+}
+
+
+.product-detail-section {
+  padding: 40px 10px;
+
+}
+
+
+.swiper-button-hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity .4s ease-in-out;
+}
+
+.swiper-button-next-cust,
+.swiper-button-prev-cust {
+    opacity: 1;
+    transition: opacity .4s ease-in-out;
+    margin: -30px;
+}
+

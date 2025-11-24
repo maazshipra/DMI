@@ -77,8 +77,12 @@ def aboutus(request):
 def prod_detail(request, id):
     categories = Category.objects.all()
 
-    prod = Product.objects.all().filter(id = id)
+    product = Product.objects.get(id=id)
 
-    related_prod = Product.objects.all().exclude(id = id)
+    related_prod = Product.objects.exclude(id=id)
 
-    return render(request, 'prod_detail.html', {'prod': prod, 'categories' : categories, 'related_prod':related_prod})
+    return render(request, 'prod_detail.html', {
+        'product': product,
+        'categories': categories,
+        'related_prod': related_prod
+    })

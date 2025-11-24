@@ -163,3 +163,35 @@
     }
   });
 })(jQuery);
+
+let hideTimeout;
+
+// Buttons
+const nextBtn = document.querySelector(".swiper-button-next-cust");
+const prevBtn = document.querySelector(".swiper-button-prev-cust");
+
+// Function to show buttons
+function showButtons() {
+  nextBtn.classList.remove("swiper-button-hidden");
+  prevBtn.classList.remove("swiper-button-hidden");
+
+  // Reset timer
+  clearTimeout(hideTimeout);
+
+  // Hide after 2 seconds of inactivity
+  hideTimeout = setTimeout(() => {
+    nextBtn.classList.add("swiper-button-hidden");
+    prevBtn.classList.add("swiper-button-hidden");
+  }, 2000);
+}
+
+// Detect user activity
+document.addEventListener("mousemove", showButtons);
+document.addEventListener("touchmove", showButtons);
+document.addEventListener("wheel", showButtons);
+
+// Initially hide after load
+hideTimeout = setTimeout(() => {
+  nextBtn.classList.add("swiper-button-hidden");
+  prevBtn.classList.add("swiper-button-hidden");
+}, 2000);
