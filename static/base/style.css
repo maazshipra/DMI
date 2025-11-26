@@ -3244,3 +3244,163 @@ label {
     margin: -30px;
 }
 
+
+
+/* ===============================
+   MAIN TEXT BLOCK
+================================== */
+.hero-content {
+    position: absolute;
+    top: 45%;
+    left: 7%;
+    transform: translateY(-50%);
+    color: #fff;
+    max-width: 600px;
+}
+
+/* ===============================
+   HEADING (large + thin font)
+================================== */
+.hero-heading {
+    font-size: 70px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    line-height: 1.05;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', sans-serif; /* use a thin modern font */
+}
+
+/* ===============================
+   SUBTITLE (spaced letters)
+================================== */
+.hero-subtitle {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+
+/* ===============================
+   DESCRIPTION (soft & readable)
+================================== */
+.hero-description {
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+/* ===============================
+   BUTTON (mint green)
+================================== */
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: #7ad7b1;     /* mint green */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.hero-btn span {
+    font-size: 20px;
+    margin-bottom: -2px;
+}
+
+.hero-btn:hover {
+    background: #6bc9a3;
+}
+
+/* ===============================
+   SMOOTH ANIMATION
+================================== */
+.hero-content * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.22,1,0.36,1);
+}
+
+.swiper-slide-active .hero-heading {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.swiper-slide-active .hero-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.swiper-slide-active .hero-description {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.swiper-slide-active .hero-btn {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+/* ===============================
+   RESPONSIVE
+================================== */
+@media(max-width: 768px) {
+
+    .hero-content {
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .hero-heading {
+        font-size: 38px;
+        letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+        font-size: 13px;
+        letter-spacing: 4px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+
+.heroSwiper .swiper-button-next, .swiper-button-prev{
+    margin: 0px;
+    background-color: transparent;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+}
+
+
+/* Hidden state */
+.swiper-arrows-hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.hero-section:hover .swiper-button-next,
+.hero-section:hover .swiper-button-prev {
+    opacity: 1;
+    pointer-events: auto;
+}

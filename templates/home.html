@@ -46,101 +46,84 @@
 
 
 <div class="main-wrapper">
+    <section class="hero-section">
+        <div class="heroSwiper">
+            <div class="swiper-wrapper">
 
-    <section class="section bg-gray hero-area">
-        <div class="container">
-            <div class="hero-slider">
+                <!-- Slide 1 -->
+                <div class="swiper-slide hero-slide">
+                    <img src="{% static 'base/images/hero-area/1.jpg' %}" class="hero-bg">
+                    <div class="hero-content">
+                        <h1 class="hero-heading">
+                            TIS THE <br> SEASON
+                        </h1>
 
-                <!-- Start first slide  -->
-                <div class="slider-item">
-                    <div class="row">
-                        <div class="col-lg-6 align-self-center text-center text-md-left mb-4 mb-lg-0">
-                            <h3 data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in="0"
-                                data-animation-out="fadeOutLeft" data-delay-out="5" data-duration-out=".3">For Watches
-                            </h3>
-                            <!-- Start Title -->
-                            <h1 data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".2"
-                                data-animation-out="fadeOutLeft" data-delay-out="5" data-duration-out=".3">Watch Display
-                                Kits</h1>
-                            <!-- end title -->
-                            <!-- Start Subtitle -->
-                            <!-- <h3 class="mb-4" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".4" data-animation-out="fadeOutLeft" data-delay-out="5" data-duration-out=".3">for only $59.00</h3> -->
-                            <!-- end subtitle -->
-                            <!-- Start description -->
-                            <p class="mb-4" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".6"
-                                data-animation-out="fadeOutLeft" data-delay-out="5" data-duration-out=".3">Lorem ipsum
-                                dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore
-                                et dolore magna aliqua.</p>
-                            <!-- end description -->
-                            <!-- Start button -->
-                            <a href="{% url 'shop' %}" class="btn btn-primary" data-duration-in=".5"
-                                data-animation-in="fadeInLeft" data-delay-in=".8" data-animation-out="fadeOutLeft"
-                                data-delay-out="5" data-duration-out=".3">Explore now</a>
-                            <!-- end button -->
-                        </div>
-                        <!-- Start slide image -->
-                        <div class="col-lg-6 text-center text-md-center">
-                            <!-- background letter -->
-                            <div class="bg-letter">
-                                <!-- <span data-duration-in=".5" data-animation-in="fadeInRight" data-delay-in="1.2" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-out=".3">
-                C 
-              </span> -->
-                                <!-- Slide image -->
-                                <img class="img-fluid d-unset" src="{% static 'base/images/PRODUCT IMG/6.png' %}"
-                                    alt="converse" data-duration-in=".5" data-animation-in="fadeInRight"
-                                    data-delay-in="1" data-animation-out="fadeOutRight" data-delay-out="5"
-                                    data-duration-out=".3">
-                            </div>
-                        </div>
-                        <!-- end slide image  -->
+                        <h3 class="hero-subtitle">
+                            FILL YOUR STORE WITH FESTIVE CHEER
+                        </h3>
+
+                        <p class="hero-description">
+                            Shop luxurious displays for the Christmas season, featuring plush textures
+                            and rich festive hues, designed to bring warmth and seasonal charm to your
+                            retail space.
+                        </p>
+
+                        <a href="#" class="hero-btn">
+                            SHOP NOW <span>→</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide hero-slide">
+                    <img src="{% static 'base/images/hero-area/2.jpg' %}" class="hero-bg">
+                    <div class="hero-content">
+                        <h1 class="hero-heading">
+                            TIS THE <br> SEASON
+                        </h1>
+
+                        <h3 class="hero-subtitle">
+                            FILL YOUR STORE WITH FESTIVE CHEER
+                        </h3>
+
+                        <p class="hero-description">
+                            Shop luxurious displays for the Christmas season, featuring plush textures
+                            and rich festive hues, designed to bring warmth and seasonal charm to your
+                            retail space.
+                        </p>
+
+                        <a href="#" class="hero-btn">
+                            SHOP NOW <span>→</span>
+                        </a>
                     </div>
                 </div>
-                <!-- end slider item -->
 
-
-                <!-- Start slide  -->
-                <div class="slider-item">
-                    <div class="row">
-                        <div class="col-lg-6 align-self-center text-center text-md-left mb-4 mb-lg-0">
-                            <h3 data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in="0"
-                                data-animation-out="fadeOutDown" data-delay-out="5.8" data-duration-out=".3">For
-                                Jewellery</h3>
-                            <h1 data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in=".2"
-                                data-animation-out="fadeOutDown" data-delay-out="5.4" data-duration-out=".3">Premium
-                                Quality Jewellery Stand</h1>
-                            <!-- <h3 class="mb-4" data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in=".4" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-out=".3">for only $37.00</h3> -->
-                            <p class="mb-4" data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in=".6"
-                                data-animation-out="fadeOutDown" data-delay-out="4.6" data-duration-out=".3">Lorem ipsum
-                                dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore
-                                et dolore magna aliqua.</p>
-                            <a href="{% url 'shop' %}" class="btn btn-primary" data-duration-in=".5"
-                                data-animation-in="fadeInDown" data-delay-in=".8" data-animation-out="fadeOutDown"
-                                data-delay-out="4.2" data-duration-out=".3">Explore now</a>
-                        </div>
-                        <div class="col-lg-6 text-center">
-                            <div class="bg-letter">
-                                <!-- background letter -->
-                                <!-- <span data-duration-in=".5" data-animation-in="fadeInRight" data-delay-in="1.2" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-out=".3">
-                B
-              </span> -->
-                                <img class="img-fluid d-unset"
-                                    src="{% static 'base/images/PRODUCT IMG/j_stand_3.png' %}" alt="converse"
-                                    data-duration-in=".5" data-animation-in="fadeInRight" data-delay-in="1"
-                                    data-animation-out="fadeOutRight" data-delay-out="5" data-duration-out=".3">
-                                <img class="img-fluid d-unset"
-                                    src="{% static 'base/images/PRODUCT IMG/j_stand_2.png' %}" alt="converse"
-                                    data-duration-in=".5" data-animation-in="fadeInRight" data-delay-in="1"
-                                    data-animation-out="fadeOutRight" data-delay-out="5" data-duration-out=".3">
-
-                            </div>
-                        </div>
+                <!-- Slide 3 -->
+                <!-- <div class="swiper-slide hero-slide">
+                    <img src="{% static 'img/banner3.jpg' %}" class="hero-bg">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Modern Retail Displays</h1>
+                        <p class="hero-text">Stylish. Durable. Professional.</p>
+                        <a href="#" class="hero-btn">Explore</a>
                     </div>
-                </div>
-                <!-- end slide  -->
+                </div> -->
 
             </div>
+
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
         </div>
     </section>
+
+
+
+
     <!-- hero area  -->
 
 
@@ -421,38 +404,38 @@
     <!-- <div class="modal fade subscription-modal" id="subscriptionModal" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <!-- modal content start -->
-    <div class="modal-content">
-        <!-- container start -->
-        <div class="container-fluid">
-            <div class="row">
-                <!-- close button -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <!-- <div class="modal-content"> -->
+    <!-- container start -->
+    <!-- <div class="container-fluid">
+            <div class="row"> -->
+    <!-- close button -->
+    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="col-lg-6 px-0">
+                </button> -->
+    <!-- <div class="col-lg-6 px-0">
                     <!-- newsletter image -->
-                    <div class="image"><img src="{% static 'base/images/popup.png' %}" alt="products"
-                            class="img-fluid w-100 rounded-left border"></div>
-                </div>
-                <div class="col-lg-6 align-self-center p-5">
-                    <!-- Content start -->
-                    <!-- <div class="text-center align-self-center">
+    <!-- <div class="image"><img src="{% static 'base/images/popup.png' %}" alt="products"
+            class="img-fluid w-100 rounded-left border"></div>
+</div>
+<div class="col-lg-6 align-self-center p-5"> --> -->
+    <!-- Content start -->
+    <!-- <div class="text-center align-self-center">
                                     <h3 class="mb-lg-5 mb-4">Welcome to <br> Display Max India</h3>
                                     <h4>Get in Touch</h4>
                                     <h2 class="mb-lg-5 mb-4">Send your email we will contact you</h2> -->
-                    <!-- newsletter form -->
-                    <!-- <div class="form">
+    <!-- newsletter form -->
+    <!-- <div class="form">
                                         <input type="email" class="form-control mb-3" name="email" id="email" placeholder="Email Address">
                                         <button class="btn btn-primary w-100" type="submit">Join Us</button>
                                     </div>
                                 </div> -->
-                    <!-- Content end -->
-                </div>
-            </div>
-        </div>
-        <!-- container end -->
-    </div>
-    <!-- modal content end -->
+    <!-- Content end -->
+</div>
+</div>
+</div>
+<!-- container end -->
+</div>
+<!-- modal content end -->
 </div>
 </div> -->
 <!-- /Newsletter Modal -->
@@ -526,8 +509,71 @@
         }
     });
 
+    var bannerSwiper = new Swiper(".bannerSwiper", {
+        loop: true,
+        effect: "fade",
+        speed: 900,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
 
 
+
+    var swiper = new Swiper(".heroSwiper", {
+        loop: true,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+        },
+        effect: "fade",
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        }
+    });
+    var swiper = new Swiper(".heroSwiper", {
+        loop: true,
+        effect: "fade",
+        fadeEffect: { crossFade: true },
+        speed: 1500,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+        },
+    });
+
+    // Hide arrows after 3 seconds
+    hero.addEventListener("touchstart", function () {
+        nextBtn.style.opacity = "1";
+        prevBtn.style.opacity = "1";
+        nextBtn.style.pointerEvents = "auto";
+        prevBtn.style.pointerEvents = "auto";
+
+        setTimeout(() => {
+            nextBtn.style.opacity = "0";
+            prevBtn.style.opacity = "0";
+            nextBtn.style.pointerEvents = "none";
+            prevBtn.style.pointerEvents = "none";
+        }, 2000);
+    });
 
 </script>
 
