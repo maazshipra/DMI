@@ -8,9 +8,10 @@ def home(request):
     prod = Product.objects.all()
 
     categories = Category.objects.all()
+    featured_products = Product.objects.filter().all()[:2]
 
     top_collection = Product.objects.all()[0:8]
-    return render(request, 'home.html',{'prod':prod, 'top_collection':top_collection,'categories' : categories })
+    return render(request, 'home.html',{'prod':prod, 'top_collection':top_collection,'categories' : categories, 'featured_products': featured_products,})
 
 def base(request):
     categories = Category.objects.all()
@@ -84,5 +85,5 @@ def prod_detail(request, id):
     return render(request, 'prod_detail.html', {
         'product': product,
         'categories': categories,
-        'related_prod': related_prod
+        'related_prod': related_prod,
     })

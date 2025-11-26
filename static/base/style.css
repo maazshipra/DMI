@@ -1154,7 +1154,7 @@ a:hover {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 
 .product {
@@ -2563,7 +2563,7 @@ label {
 
 
 
-/* CSS */
+/* CategoryCSS */
 .category-section {
   display: flex;
   flex-wrap: wrap;
@@ -2575,7 +2575,7 @@ label {
 }
 
 .section-heading {
-  font-size: 2rem;    /* Smaller heading */
+  font-size: 26px;    /* Smaller heading */
   font-weight: 700;
   text-align: center;
   color: #222;
@@ -2585,7 +2585,8 @@ label {
 
 .category {
   background: #fff;
-  border-radius: 24px;
+  border-radius: 12px;
+  overflow: hidden;
   box-shadow: 0 6px 32px 0 #0002;
   text-align: left;
   justify-content: center;
@@ -2622,8 +2623,8 @@ label {
   width: 100%;
   height: 260px;  /* Smaller, uniform for all */
   overflow: hidden;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+  /* border-top-left-radius: 24px;
+  border-top-right-radius: 24px; */
   background: #eee;
   margin-bottom: 18px;
 }
@@ -2657,7 +2658,7 @@ label {
   border: none;
   padding: 13px 0;
   width: 100%;
-  border-radius: 16px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 500;
   box-shadow: 0 2px 8px #0001;
@@ -2671,30 +2672,61 @@ label {
   color: #fff;
   outline: none;
 }
-
 @media (max-width: 900px) {
-  .category-section { gap: 14px; }
-  .category { max-width: 45vw; min-width: 200px; }
-  .image-container { height: 120px; }
-}
-@media (max-width: 600px) {
-  .category-section {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    padding: 20px 2vw;
+  .category-section { 
+    gap: 12px; 
+    justify-content: center;
   }
-  .category {
-    max-width: 96vw;
-    min-height: 0;
-    padding-bottom: 14px;
+
+  /* 2 per row on tablets */
+  .category { 
+    width: 48%;
   }
-  .image-container { height: 90px; }
-  .category h3 { font-size: 1rem; }
-  .category p { font-size: 0.9rem; }
-  .category button { font-size: 0.91rem; padding: 10px 0; }
+
+  .image-container { 
+    height: 160px;
+    margin: 0px;
+    aspect-ratio: 3/4;
+  }
 }
 
+@media (max-width: 600px) {
+
+  /* 2 per row on mobile */
+  .category-section {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .category {
+    width: 48%;
+  }
+
+  .image-container {
+    height: 220px;
+    margin: 0px;
+     aspect-ratio: 3/4;
+}
+
+  .category h3 { font-size: 1rem; }
+  .category p {
+    font-size: 11px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Truncate after 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Optional, but good practice */
+    }
+  .category button { 
+    padding: 6px 0; 
+    font-size: 12px; 
+  }
+  .category-container {
+    min-height: 130px;
+    padding: 12px;
+  }
+}
 
 .product-card {
     position: relative;
@@ -3244,6 +3276,26 @@ label {
     margin: -30px;
 }
 
+/* ================================
+   HERO SECTION BASE
+================================== */
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: relative;
+}
+
+/* Full width background images */
+.hero-bg {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
 
 
 /* ===============================
@@ -3383,7 +3435,16 @@ label {
 }
 
 
-.heroSwiper .swiper-button-next, .swiper-button-prev{
+.heroSwiper .swiper-button-next{
+    margin: 0px;
+    background-color: transparent;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.heroSwiper .swiper-button-prev{
     margin: 0px;
     background-color: transparent;
     z-index: 1;
