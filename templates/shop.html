@@ -6,8 +6,8 @@
 
 <style>
     /* -----------------------------
-   MOBILE FILTER BUTTON (STICKY)
---------------------------------*/
+       MOBILE FILTER BUTTON (STICKY)
+    --------------------------------*/
     .mobile-filter-btn {
         position: fixed;
         bottom: 0;
@@ -23,7 +23,6 @@
         display: none;
     }
 
-    /* Show only on mobile */
     @media (max-width: 767px) {
         .mobile-filter-btn {
             display: block;
@@ -31,8 +30,8 @@
     }
 
     /* -----------------------------
-   DRAWER (FILTER SIDEBAR MOBILE)
---------------------------------*/
+       MOBILE DRAWER FILTER
+    --------------------------------*/
     @media (max-width: 767px) {
 
         #mobileFilterDrawer {
@@ -40,7 +39,6 @@
             bottom: -100%;
             left: 0;
             width: 100%;
-            height: 80%;
             background: #fff;
             z-index: 99999;
             padding: 20px;
@@ -53,27 +51,23 @@
             bottom: 0;
         }
 
-        /* 2 cards per row */
         .product-col {
             width: 50% !important;
             padding: 5px;
         }
     }
 
-    /* Desktop spacing */
     @media (min-width: 768px) {
-        .product-col {
-            padding: 15px;
+        .drawer-close-btn {
+            display: none;
         }
     }
 
-    /* Drawer header */
     .drawer-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 10px;
     }
 
-    /* Close Button */
     .drawer-close-btn {
         background: none;
         border: none;
@@ -82,7 +76,14 @@
         color: #333;
     }
 
-    /* Apply Button */
+    /* CHECKBOX DESIGN */
+    .filter-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* MOBILE APPLY BUTTON */
     .drawer-apply-btn {
         position: sticky;
         bottom: 0;
@@ -95,6 +96,7 @@
         font-weight: 600;
         margin-top: 20px;
         border-radius: 5px;
+        cursor: pointer;
     }
 </style>
 {% endblock %}
@@ -118,16 +120,15 @@
         <div class="shop-container">
             <div class="row d-flex flex-wrap">
 
-                <!-- FILTER DRAWER (SIDEBAR) -->
+                <!-- FILTER SIDEBAR -->
                 <div class="col-lg-3 shop-sidebar" id="mobileFilterDrawer">
 
-                    <!-- Drawer Header -->
                     <div class="drawer-header d-flex justify-content-between align-items-center mb-3">
                         <h5 class="mb-0">Filters</h5>
                         <button class="drawer-close-btn" onclick="toggleMobileFilters()">✕</button>
                     </div>
 
-                    <!-- search product -->
+                    <!-- search -->
                     <div class="position-relative mb-5">
                         <form action="{% url 'search' %}" method="get">
                             <input type="search" class="form-control rounded-0" name="search" placeholder="Search...">
@@ -137,34 +138,43 @@
                         </form>
                     </div>
 
-                    <!-- categories -->
-                    <div class="mb-30">
-                        <h4 class="mb-3">Shop by Categories</h4>
-                        <ul class="pl-0 shop-list list-unstyled">
-                            <li>
-                                <a href="{% url 'shop' %}" class="d-flex py-2 text-gray justify-content-between">
-                                    <span>All</span>
-                                </a>
-                            </li>
+                    <!-- CATEGORY FILTER (FORM STARTS HERE) -->
+                    <form id="filterForm" method="get">
 
-                            {% for category in categories %}
-                            <li>
-                                <a href="{% url 'shop' %}?category={{ category.title }}"
-                                    class="d-flex py-2 text-gray justify-content-between">
-                                    <span>{{ category.title }}</span>
-                                </a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                        <div class="mb-30">
+                            <h4 class="mb-3">Shop by Categories</h4>
 
-                    <!-- Apply Filters -->
-                    <div class="drawer-apply-btn" onclick="toggleMobileFilters()">
-                        Apply Filters
-                    </div>
+                            <ul class="pl-0 shop-list list-unstyled">
+                                <li>
+                                    <a href="{% url 'shop' %}" class="d-flex py-2 text-gray justify-content-between">
+                                        <span>All</span>
+                                    </a>
+                                </li>
+
+                                {% for category in categories %}
+                                <li class="filter-checkbox">
+
+                                    <input type="checkbox"
+                                           name="category"
+                                           value="{{ category.title }}"
+                                           {% if category.title in selected_categories %}checked{% endif %}
+                                           onchange="applyDesktopFilters()">
+
+                                    <label>{{ category.title }}</label>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <!-- MOBILE APPLY BUTTON -->
+                        <div class="drawer-apply-btn d-md-none" onclick="submitFilters()">
+                            Apply Filters
+                        </div>
+
+                    </form>
 
                 </div>
-                <!-- /FILTER DRAWER -->
+                <!-- /FILTER SIDEBAR -->
 
                 <!-- PRODUCT GRID -->
                 <div class="col-lg-9 product-section">
@@ -173,7 +183,6 @@
                         {% for product in prod %}
                         <div class="col-lg-3 col-md-4 col-6 mb-4">
                             <div class="shop-card">
-
                                 <a href="{% url 'prod_detail' product.id %}" class="shop-card-img-wrap">
                                     <img src="{{ product.image.url }}" alt="{{ product.title }}" class="shop-card-img">
                                 </a>
@@ -194,9 +203,6 @@
                                         <div class="wish-list-icon"><i class="fa-regular fa-heart"></i></div>
                                     </div>
 
-
-                                    <!-- <div class="shop-card-tag">Waterproof</div> -->
-
                                     <div class="shop-card-bottom">
                                         <div class="shop-card-price">₹999</div>
 
@@ -209,24 +215,7 @@
 
                             </div>
                         </div>
-
                         {% endfor %}
-                    </div>
-
-                    <!-- Pagination -->
-                    <div class="col-12 mt-5">
-                        <nav>
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="ti-arrow-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
 
                 </div>
@@ -250,6 +239,16 @@
     function toggleMobileFilters() {
         const drawer = document.getElementById("mobileFilterDrawer");
         drawer.classList.toggle("open");
+    }
+
+    function submitFilters() {
+        document.getElementById("filterForm").submit();
+    }
+
+    function applyDesktopFilters() {
+        if (window.innerWidth >= 768) {
+            document.getElementById("filterForm").submit();
+        }
     }
 </script>
 {% endblock %}

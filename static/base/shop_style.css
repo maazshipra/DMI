@@ -157,3 +157,46 @@
         padding-right: 5px !important;
     }
 }
+
+
+/* MULTISELECT CHECKBOXES */
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.filter-checkbox input {
+    width: 18px;
+    height: 18px;
+}
+
+/* MOBILE DRAWER APPLY BUTTON (STICKY) */
+@media (max-width: 767px) {
+    .drawer-apply-wrapper {
+        position: sticky;
+        bottom: 0;
+        background: #fff;
+        padding: 12px 0;
+        border-top: 1px solid #ddd;
+    }
+
+    .drawer-apply-btn {
+        width: 100%;
+        display: block;
+        background: #111;
+        color: #fff;
+        padding: 12px 0;
+        text-align: center;
+        font-weight: 600;
+        border-radius: 4px;
+    }
+}
+
+/* HIDE CLOSE BUTTON ON DESKTOP */
+@media (min-width: 768px) {
+    .drawer-close-btn {
+        display: none;
+    }
+}

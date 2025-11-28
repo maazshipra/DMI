@@ -19,28 +19,25 @@ def base(request):
     return render(request, 'base.html',{'categories' : categories })
 
 
+
 def shop(request):
 
-    category = request.GET.get('category')
+    selected_categories = request.GET.getlist('category')
 
-    if category == None:
-        prod = Product.objects.all()
+    if selected_categories:
+        prod = Product.objects.filter(category__title__in=selected_categories)
     else:
-        prod = Product.objects.filter(category__title=category)
+        prod = Product.objects.all()
 
     categories = Category.objects.all()
 
-
-   
-    
-
-
-
-
-    return render(request, 'shop.html', {'prod':prod, 'categories' : categories })
+    return render(request, 'shop.html', {
+        'prod': prod,
+        'categories': categories,
+        'selected_categories': selected_categories
+    })
 
 def serach(request):
-
 
     
     if request.method == 'GET':
